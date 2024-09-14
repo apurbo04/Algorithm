@@ -19,10 +19,10 @@ int main()
         }
         while (e--)
         {
-                int a, b, c;
+                ll a, b, c;
                 cin >> a >> b >> c;
-                adj[a][b] = c;
-                adj[b][a] = c;
+                adj[a][b] = min(adj[a][b], c);
+                adj[b][a] = min(adj[b][a], c);
         }
 
         for (int k = 1; k <= n; k++)
