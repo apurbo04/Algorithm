@@ -3,7 +3,6 @@
 const long long int INF = 1e18 + 5;
 using namespace std;
 
-
 int main()
 {
         ll n, e, q;
