@@ -1,0 +1,31 @@
+class Solution{   
+public:
+    int dp[105][10005];
+    bool checkSum(int n,int sum,vector<int>arr)
+    {
+        if(n==0)
+        {
+             return(sum==0);
+        }
+        
+        if(dp[n][sum]!=-1) return dp[n][sum];
+        
+        if(arr[n-1]<=sum)
+        {
+            bool pick = checkSum(n-1,sum-arr[n-1],arr);
+            bool noPick = checkSum(n-1,sum,arr);
+            return dp[n][sum] = pick||noPick;
+        }
+        else 
+        {
+            bool noPick = checkSum(n-1,sum,arr);
+            return dp[n][sum] = noPick;
+        }
+    }
+    bool isSubsetSum(vector<int>arr, int sum){
+        // code here
+        int n = arr.size();
+        memset(dp,-1,sizeof(dp));
+        return checkSum(n,sum,arr);
+    }
+};
